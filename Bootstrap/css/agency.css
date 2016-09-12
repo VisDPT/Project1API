@@ -197,6 +197,7 @@ fieldset[disabled] .btn-xl.active {
   color: white;
   background-color: #fec503;
 }
+/*================== MQ 768px ==================*/
 @media (min-width: 768px) {
   .navbar-custom {
     background-color: #180D01;
@@ -216,6 +217,7 @@ fieldset[disabled] .btn-xl.active {
     border-radius: 3px;
   }
 }
+
 @media (min-width: 768px) {
   .navbar-custom.affix {
     background-color: #180D01;
@@ -363,6 +365,7 @@ section h3.section-subheading {
 #portfolio * {
   z-index: 2;
 }
+/*================== MQ 767px ==================*/
 @media (min-width: 767px) {
   #portfolio .portfolio-item {
     margin: 0 0 30px;
@@ -464,6 +467,7 @@ section h3.section-subheading {
 .timeline .timeline-body > ul {
   margin-bottom: 0;
 }
+/*================== MQ 768px ==================*/
 @media (min-width: 768px) {
   .timeline:before {
     left: 50%;
@@ -495,6 +499,7 @@ section h3.section-subheading {
     padding: 0 30px 20px 20px;
   }
 }
+/*================== MQ 992px ==================*/
 @media (min-width: 992px) {
   .timeline > li {
     min-height: 150px;
@@ -516,6 +521,7 @@ section h3.section-subheading {
     padding: 0 20px 20px;
   }
 }
+/*================== MQ 1200px ==================*/
 @media (min-width: 1200px) {
   .timeline > li {
     min-height: 170px;
@@ -613,7 +619,7 @@ footer {
   padding: 25px 0;
   text-align: center;
   background-color: #fed136;
-  border: 5px ridge  #160b03;
+  /* border-top: 5px ridge  #160b03; */
 }
 footer span.copyright {
   line-height: 40px;
@@ -750,13 +756,81 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #fed136;
 }
-/*-------------------*/
-#map{
-    text-align: center;
-    height: 400px;
-    width: 100%;
-    border: 10px ridge #180D01;
-    
-    
-        
+/*--------OUR CSS MODIFICATIONS  MQ 1200px to 768px-----------*/
+#app{
+  background-color: #fff6da; 
+  color: #180D01;
 }
+
+#instructions{
+  color: #463D33;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#map{
+  text-align: center;
+  height: 400px;
+  width: 100%;
+  border: 10px ridge #180D01;
+}
+    
+#search{
+  margin-top: 20px;
+  padding: 10px;
+  border-style: 3px solid #180D01;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  font-size: 20px;
+}
+
+#searchBtn{
+  margin-left: 20px;
+  width: 150px;
+  text-align: center;
+  font-size: 20px;
+  background-color: #180D01;
+  color: #fed136;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  border-style: 3px solid #180D01;
+  padding: 10px;
+}
+
+#searchBtn:hover{
+  color: #180D01;
+  background-color: #fed136;
+  font-size: 22px;
+  border-style: 3px solid #180D01;
+}
+
+#team{
+  color:white; 
+}
+
+.api{
+  height: 600px;
+}
+
+#apiTitle{
+  margin-top: 100px;
+}
+
+#googleMapsImg{
+  margin-top: 70px;
+  height: 300px; 
+  width: 300px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border: 10px solid #180D01;
+}
+
+#wikiImg{
+  margin-top: 70px;
+  height: 300px; 
+  width: 300px;
+  border: 10px solid #180D01;
+}
+
+
+
