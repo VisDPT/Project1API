@@ -5,13 +5,13 @@ var validCountries = ["Sweden", "France", "Sweden", "France", "Germany","United 
 var userInput; 
 
 //=========================FUNCTIONS=====================
-
-
-
 ////GOOGLE MAPS API
 
 
 ///WIKI API
+function wiki(){
+	
+}
 
 
 
