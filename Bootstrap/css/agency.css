@@ -833,4 +833,33 @@ body {
 }
 
 
+/*================== MQ 640px ==================*/
+@media (min-width: 640px) {
+  #googleMapsImg{
+
+  height: 200px; 
+  width: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 3px;
+  padding-left: 3px;
+  float: left;
+display: block;
+    margin-left: 18%;
+    margin-right: 50px;
+
+
+}
+
+#wikiImg{
+  height: 200px; 
+  width: 200px;
+  display: block;
+    margin-right: auto;
+
+
+}
+
+}
+
 
