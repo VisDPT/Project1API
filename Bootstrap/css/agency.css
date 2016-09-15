@@ -3,6 +3,7 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+
 body {
   overflow-x: hidden;
   font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -46,6 +47,38 @@ h6 {
   text-transform: uppercase;
   font-weight: 700;
 }
+
+footer{
+  margin-top: 200px;
+  margin-bottom: 0;
+}
+
+#api{
+  height: 535px;
+  margin-bottom: 150px;
+}
+
+#apiTitle{
+  margin-top: 100px;
+}
+#googleMapsImg{
+  height: 200px;
+  width:200px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border: 10px solid #180D01;
+  margin:auto;
+}
+
+#wikiImg{
+  height: 200px;
+  width:200px;
+  border: 10px solid #180D01;
+    margin:auto;
+}
+
 .img-centered {
   margin: 0 auto;
 }
@@ -197,35 +230,85 @@ fieldset[disabled] .btn-xl.active {
   color: white;
   background-color: #fec503;
 }
-/*================== MQ 768px ==================*/
+
+
+@media(min-width:576px){ /*========== ????? 576 -743 ============ */
+
+  footer{
+    margin-bottom: 0;
+    margin-top: 100px;
+  }
+
+  #api{
+    height: 535px;
+    margin-bottom: 150px;
+  }
+
+  #apiTitle{
+    margin-top: 100px;
+  }
+  #googleMapsImg{
+    height: 200px;
+    width:200px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border: 10px solid #180D01;
+    margin-bottom:10%;
+  }
+
+  #wikiImg{
+    height: 200px;
+    width:200px;
+    border: 10px solid #180D01;
+    margin-bottom:10%;
+
+  }
+
+
+    footer{
+    margin-top: 100px;
+  }
+  }
+
+/*********************************************
+MQ 768px
+**********************************************/
+
+@media (min-width: 768px) { 
+      section {
+        padding: 150px 0;
+      }
+}
 @media (min-width: 768px) {
-  .navbar-custom {
-    background-color: #180D01;
-    padding: 25px 0;
-    -webkit-transition: padding 0.3s;
-    -moz-transition: padding 0.3s;
-    transition: padding 0.3s;
-    border: none;
-  }
-  .navbar-custom .navbar-brand {
-    font-size: 2em;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-  }
-  .navbar-custom .navbar-nav > .active > a {
-    border-radius: 3px;
-  }
+      .navbar-custom {
+        background-color: #180D01;
+        padding: 25px 0;
+        -webkit-transition: padding 0.3s;
+        -moz-transition: padding 0.3s;
+        transition: padding 0.3s;
+        border: none;
+      }
+      .navbar-custom .navbar-brand {
+        font-size: 2em;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+      }
+      .navbar-custom .navbar-nav > .active > a {
+        border-radius: 3px;
+      }
 }
 
 @media (min-width: 768px) {
-  .navbar-custom.affix {
-    background-color: #180D01;
-    padding: 10px 0;
-  }
-  .navbar-custom.affix .navbar-brand {
-    font-size: 1.5em;
-  }
+      .navbar-custom.affix {
+        background-color: #180D01;
+        padding: 10px 0;
+      }
+      .navbar-custom.affix .navbar-brand {
+        font-size: 1.5em;
+      }
 }
 header {
   background-image: url('../img/ourImages/TeamUSA.jpg');
@@ -260,25 +343,26 @@ header .intro-text .intro-heading {
   
 }
 @media (min-width: 768px) {
-  header .intro-text {
-    padding-top: 300px;
-    padding-bottom: 200px;
-  }
-  header .intro-text .intro-lead-in {
-    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-style: italic;
-    font-size: 40px;
-    line-height: 40px;
-    margin-bottom: 25px;
-  }
-  header .intro-text .intro-heading {
-    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 75px;
-    line-height: 75px;
-    margin-bottom: 50px;
-  }
+      header .intro-text {
+        padding-top: 300px;
+        padding-bottom: 200px;
+      }
+      header .intro-text .intro-lead-in {
+        font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-style: italic;
+        font-size: 40px;
+        line-height: 40px;
+        margin-bottom: 25px;
+      }
+      header .intro-text .intro-heading {
+        font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 75px;
+        line-height: 75px;
+        margin-bottom: 50px;
+      }
+
 }
 section {
   padding: 100px 0;
@@ -297,11 +381,41 @@ section h3.section-subheading {
   margin-bottom: 75px;
 }
 @media (min-width: 768px) {
-  section {
-    padding: 150px 0;
-  }
+      section {
+        padding: 150px 0;
+      }
+      #apiTitle{
+      margin-top: 150px;
+      }
+
+      #googleMapsImg{
+        margin-top: 70px;
+        height: 200px; 
+        width: 200px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        padding-right: 10px;
+        padding-left: 10px;
+        border: 10px solid #180D01;
+        margin-bottom:10%;
+        float: none;
+      }
+
+      #wikiImg{
+        margin-top: 70px;
+        height: 200px; 
+        width: 200px;
+        border: 10px solid #180D01;
+        margin-bottom:10%;
+        
+      }
+
+      footer{
+      margin-top: 200px;
+     
 }
-.service-heading {
+}
+/*.service-heading {
   margin: 15px 0;
   text-transform: none;
 }
@@ -364,9 +478,50 @@ section h3.section-subheading {
 }
 #portfolio * {
   z-index: 2;
-}
+} */
 /*================== MQ 767px ==================*/
 @media (min-width: 767px) {
+      section {
+        padding: 150px 0;
+      }
+      #apiTitle{
+      margin-top: 150px;
+      }
+
+      #googleMapsImg{
+        margin-top: 70px;
+        height: 250px; 
+        width: 250px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        padding-right: 10px;
+        padding-left: 10px;
+        border: 10px solid #180D01;
+        margin-bottom:10%;
+        float: none;
+      }
+
+      #wikiImg{
+        margin-top: 70px;
+        height: 250px; 
+        width: 250px;
+        border: 10px solid #180D01;
+        margin-bottom:10%;
+        
+      }
+
+      footer{
+      margin-top: 200px;
+     
+}
+}
+
+
+
+
+
+
+/*@media (min-width: 767px) {
   #portfolio .portfolio-item {
     margin: 0 0 30px;
   }
@@ -466,9 +621,10 @@ section h3.section-subheading {
 .timeline .timeline-body > p,
 .timeline .timeline-body > ul {
   margin-bottom: 0;
-}
+} */
+
 /*================== MQ 768px ==================*/
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {
   .timeline:before {
     left: 50%;
   }
@@ -498,9 +654,9 @@ section h3.section-subheading {
     text-align: left;
     padding: 0 30px 20px 20px;
   }
-}
+}*/
 /*================== MQ 992px ==================*/
-@media (min-width: 992px) {
+/*@media (min-width: 992px) {
   .timeline > li {
     min-height: 150px;
   }
@@ -520,9 +676,9 @@ section h3.section-subheading {
   .timeline > li.timeline-inverted > .timeline-panel {
     padding: 0 20px 20px;
   }
-}
+}*/
 /*================== MQ 1200px ==================*/
-@media (min-width: 1200px) {
+/*@media (min-width: 1200px) {
   .timeline > li {
     min-height: 170px;
   }
@@ -540,7 +696,7 @@ section h3.section-subheading {
   .timeline > li.timeline-inverted > .timeline-panel {
     padding: 0 100px 20px 20px;
   }
-}
+} */
 .team-member {
   text-align: center;
   margin-bottom: 50px;
@@ -560,6 +716,7 @@ section h3.section-subheading {
 aside.clients img {
   margin: 50px auto;
 }
+
 section#contact {
   background-color: #180D01;
   background-image: url('../img/map-image.png');
@@ -619,6 +776,7 @@ footer {
   padding: 25px 0;
   text-align: center;
   background-color: #fed136;
+  margin-bottom: 0;
   /* border-top: 5px ridge  #160b03; */
 }
 footer span.copyright {
@@ -628,6 +786,7 @@ footer span.copyright {
   text-transform: none;
   color: #180D01;
   font-size: 19px;
+  margin-bottom: 0;
 
 }
 footer ul.quicklinks {
@@ -665,6 +824,7 @@ ul.social-buttons li a:active {
 .btn:active:focus {
   outline: none;
 }
+/*
 .portfolio-modal .modal-dialog {
   margin: 0;
   height: 100%;
@@ -711,14 +871,14 @@ ul.social-buttons li a:active {
 }
 .portfolio-modal .close-modal:hover {
   opacity: 0.3;
-}
+}*/
 .portfolio-modal .close-modal .lr {
   height: 75px;
   width: 1px;
   margin-left: 35px;
   background-color: #180D01;
   transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
+  -ms-transform: rotate(45deg); 
   /* IE 9 */
   -webkit-transform: rotate(45deg);
   /* Safari and Chrome */
@@ -756,7 +916,10 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #fed136;
 }
-/*--------OUR CSS MODIFICATIONS  MQ 1200px to 768px-----------*/
+
+
+
+/*--------OUR CSS MODIFICATIONS -----------*/
 #app{
   background-color: #fff6da; 
   color: #180D01;
@@ -806,31 +969,10 @@ body {
   color:white; 
 }
 
-.api{
-  height: 600px;
-}
 
-#apiTitle{
-  margin-top: 100px;
-}
 
-#googleMapsImg{
-  margin-top: 70px;
-  height: 300px; 
-  width: 300px;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  padding-right: 10px;
-  padding-left: 10px;
-  border: 10px solid #180D01;
-}
 
-#wikiImg{
-  margin-top: 70px;
-  height: 300px; 
-  width: 300px;
-  border: 10px solid #180D01;
-}
+
 
 
 /*================== MQ 640px ==================*/
