@@ -1,8 +1,21 @@
+$( document ).ready(function() {
+
 //=========================VARIABLES=====================
 
-var validCountries = ["Sweden", "France", "Sweden", "France", "Germany","United States", "Austria",
-"Switzerland", "Denmark", "Great Britain", "West Germany", "United Team of Germany", "Soviet Union", "Netherlands", "Spain"]
-var userInput; 
+var validCountriesArray = [
+			"Sweden", 
+			"France", 
+			"Germany",
+			"United States", "usa", 
+			"Austria", 
+			"Switzerland", 
+			"Denmark", 
+			"Great Britain", "england", "UK", "U.K.",
+			"West Germany", 
+			"United Team of Germany", 
+			"Soviet Union", "Russia",
+			"Netherlands", 
+			"Spain"]; 
 
 //=========================FUNCTIONS=====================
 ////GOOGLE MAPS API
@@ -13,7 +26,21 @@ function wiki(){
 	
 }
 
+//MODAL function
+function modal(){
 
+}
+
+function invalidPopoverShow(){
+	$('[data-toggle="popover"]').popover({
+		placement: "right", //will display right of the button
+		trigger: "focus", //when I click anywhere on screen, popover will deisappear
+		content: "Choose a valid country that had Dressage/Equestrain participants in the Olympics! (Click anywhere to make popover disappear)", //message that appears
+	}); 
+}
+function invalidPopoverHide(){
+	$('[data-toggle="popover"]').popover('hide'); //to hide
+}
 
 //=======================IF ELSE ========================
 
@@ -28,17 +55,40 @@ function wiki(){
   };
 
   firebase.initializeApp(config);
+  	var database = firebase.database();
 
-	var database = firebase.database();
+  	//"Initialize" the popovers so it does not skip the popover on first invalid SearchTerm  
+  	$('[data-toggle="popover"]').popover({
+		placement: "right",
+		trigger: "focus",
+		content: "Choose a valid country that had Dressage/Equestrain participants in the Olympics! (Click anywhere to make popover disappear)",
+	});
+	
+	$('[data-toggle="popover"]').popover('hide'); 
+
+
 
 	// Button for adding search Term
 	$("#searchBtn").on("click", function(){
-	    var searchTerm = $("#search").val().trim();
+
+	    var searchTerm = $("#search").val().trim(); //setting user input to a variable
 	    console.log(searchTerm);
-	    database.ref().push(searchTerm);
+	    
+	    database.ref().push(searchTerm); //pushing to firebase
 	    console.log(searchTerm + "added to Firebase");
-	    $("#search").val("");
-	    return false; 
+	    //VERY IMPORT IF/ELSE: says what happens based on user input
+          if(validCountriesArray.indexOf(searchTerm.toLowerCase()) > -1){
+			console.log("Good pick!" + searchTerm);
+			invalidPopoverHide(); 
+			//insert wiki
+			//insert maps	
+          }else{
+          	//run code for no match
+          	invalidPopoverShow();
+          	console.log('No Match: ' + searchTerm);
+          }
+	    $("#search").val(""); //clears text in search box
+ 
 	});
 	// FIREBASE EVENT 
 	database.ref().on("value", function(snapshot) {
@@ -50,12 +100,4 @@ function wiki(){
 	    
 	    });
 
-/*
-if (userInput == validCountry){
-	//call google maps function
-	//call wiki API function
-}
-
-else (userInput !== validCountry){
-	//TRIGGER MODAL
-}*/ 
+});
