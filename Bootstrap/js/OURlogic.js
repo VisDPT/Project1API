@@ -20,6 +20,22 @@ var validCountriesArray = [
 //=========================FUNCTIONS=====================
 ////GOOGLE MAPS API
 
+// empty array, user searches will be pushed into this 
+var searched = []; 
+var mapDiv; // created these variables outside of the map function because there was an error when the page loaded that did not recognize these variables when they were defined in the functions. So now, the map will load. And the initMap() function will be called using a global variable. 
+var userSearch = $("#search"); 
+var mapAPI = $("#map");
+      
+// google.maps.event.addDomListener(window, 'load', initMap);
+// this function will initialize and add map when the page loads, but errors on page 
+      
+function initMap() {
+	mapDiv = document.getElementById(map);  // displays map on the div id ='map'
+    map = new google.maps.Map(mapDiv, {  // sets up focused point on the map. 
+        center: {lat: 37.09024, lng: -100.712891}, // map parameter: location on map upon load
+        zoom: 5  // map parameter: zoom in or out (the smaller the number the further out the zoom)
+    	});
+    }
 
 ///WIKI API
 function wiki(){
