@@ -824,6 +824,11 @@ ul.social-buttons li a:active {
 .btn:active:focus {
   outline: none;
 }
+
+.modal-window{
+  position: fixed;
+  
+}
 /*
 .portfolio-modal .modal-dialog {
   margin: 0;
