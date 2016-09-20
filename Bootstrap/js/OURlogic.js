@@ -70,12 +70,16 @@ function wiki(){
         list: "search",
         format: "json"
       },
+
     function(data) {
+      
       console.log(data); ///shows object in console!
-      $("#results").empty();
-      $("#results").append("<p>Results for <b>" + q + "</b></p>");
+      $("#wikiResults").empty();
+      $("#wikiResults").append("<p style='font-size:30px'>Wikipedia API Results for <b>" + q + "</b></p>");
         $.each(data.query.search, function(i,item){
-          $("#results").append("<div><a href='http://en.wikipedia.org/wiki/" + item.title + "'>" + item.title + "</a><br>" + item.snippet + "<br><br></div>");
+          console.log(i);
+          console.log(item);
+          $("#wikiResults").append("<div><a href='http://en.wikipedia.org/wiki/" + item.title + "'>" + item.title + "</a><br>" + item.snippet + "<br><br></div>");
           });
         });
  //     });   
