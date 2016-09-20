@@ -22,7 +22,7 @@ var validCountriesArray = [
 
 
       // array for medal winning countries 
-      var medalWinners = ['Sweden', 'France', 'Germany', 'United States', 'Austria', 'Switzerland', 'Denmark', 'Great Britan', 'West Germany', 'United Team of Germany', 'Soviet Union', 'Netherlands', 'Spain']; 
+      //var medalWinners = ['Sweden', 'France', 'Germany', 'United States', 'Austria', 'Switzerland', 'Denmark', 'Great Britan', 'West Germany', 'United Team of Germany', 'Soviet Union', 'Netherlands', 'Spain']; 
       
       // empty array, user searches will be pushed into this 
       var searched = []; 
@@ -42,15 +42,8 @@ var validCountriesArray = [
       } */
 
 
-var medalWinners = ['Sweden', 'France', 'Germany', 'United States', 'Austria', 'Switzerland', 'Denmark', 'Great Britan', 'West Germany', 'United Team of Germany', 'Soviet Union', 'Netherlands', 'Spain']; 
-      
-      // empty array, user searches will be pushed into this 
-      var searched = []; 
-      var mapDiv, map; // created these variables outside of the map function because there was an error when the page loaded that did not recognize these variables when they were defined in the functions. So now, the map will load. And the initMap() function will be called using a global variable. 
-      var userSearch = $('#search'); 
-      
       // this function will initialize and add map when the page loads 
-function initMap() {
+   function initMap() {
             var mapOptions = {
                 center: new google.maps.LatLng(37.09024, -100.712891),
                 zoom: 5,
@@ -258,7 +251,7 @@ function invalidPopoverHide(){
 
 
 
-	// Button for adding search Term
+	// ======Button for adding search Term====
 	$("#searchBtn").on("click", function(){
 
 	    var searchTerm = $("#search").val().trim(); //setting user input to a variable
@@ -268,10 +261,10 @@ function invalidPopoverHide(){
 	    console.log(searchTerm + "added to Firebase");
 	    //VERY IMPORT IF/ELSE: says what happens based on user input
           if(validCountriesArray.indexOf(searchTerm.toLowerCase()) > -1){
-			console.log("Good pick!" + searchTerm);
-			invalidPopoverHide(); 
-			//insert wiki
-			//insert maps	
+      			console.log("Good pick!" + searchTerm);
+      			invalidPopoverHide(); 
+      			//insert wiki
+      			//insert maps	
 
           }else{
           	//run code for no match
