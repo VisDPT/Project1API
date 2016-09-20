@@ -60,8 +60,8 @@ function invalidPopoverHide(){
 
 ///WIKI API
 function wiki(){
-    $("#search").on("click", function(){
-    var q = $("#searchterm").val();
+//    $("#searchBtn").on("click", function(){
+    var q = $("#search").val();
     $.getJSON("http://en.wikipedia.org/w/api.php?callback=?",
       {
         srsearch: q + "Dressage",
@@ -71,20 +71,18 @@ function wiki(){
         format: "json"
       },
     function(data) {
+      console.log(data); ///shows object in console!
       $("#results").empty();
       $("#results").append("<p>Results for <b>" + q + "</b></p>");
         $.each(data.query.search, function(i,item){
-          $("#results").append("<div><a href='http://en.wikipedia.org/wiki/" + encodeURIComponent(item.title) + "'>" + item.title + "</a><br>" + item.snippet + "<br><br></div>");
+          $("#results").append("<div><a href='http://en.wikipedia.org/wiki/" + item.title + "'>" + item.title + "</a><br>" + item.snippet + "<br><br></div>");
           });
         });
-      });     
+ //     });   
 } 
 
-//=======================IF ELSE ========================
-
-////FIREBASE
-
-    // Initialize Firebase
+//======================= PROCESS ========================
+// Initialize Firebase
   var config = {
     apiKey: "AIzaSyA8vb_DY33r4H9uUHiJm8qiU0KsZDUboKA",
     authDomain: "dressage-project.firebaseapp.com",
@@ -95,15 +93,14 @@ function wiki(){
   firebase.initializeApp(config);
     var database = firebase.database();
 
-    //"Initialize" the popovers so it does not skip the popover on first invalid SearchTerm  
-    $('[data-toggle="popover"]').popover({
+//"Initialize" the popovers so it does not skip the popover on first invalid SearchTerm  
+  $('[data-toggle="popover"]').popover({
     placement: "right",
     trigger: "focus",
     content: "Choose a valid country that had Dressage/Equestrain participants in the Olympics! (Click anywhere to make popover disappear)",
   });
   
-    $('[data-toggle="popover"]').popover('hide'); 
-
+  $('[data-toggle="popover"]').popover('hide'); 
 
 
   // ==================== BUTTON ON CLICK FUNCTION =================
@@ -118,6 +115,7 @@ function wiki(){
             database.ref().push(searchTerm); 
             console.log(searchTerm + "  added to Firebase." + " Good pick!");
             invalidPopoverHide(); //popover
+            wiki();
 
 
           }else{
