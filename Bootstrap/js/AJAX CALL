@@ -1,0 +1,152 @@
+$(document).ready(function(){
+
+//var countryHorse = {
+//	country: [],
+//	person: [Xavier Lesage on Plumard,]
+//	horse: [],
+
+//}
+
+	//button and search output function
+	$('#searchBtn').click(function(){
+		var searchTerm = $('#search').val();
+		//var searchTermSecond = $('olympicsequestrian');
+
+	console.log(searchTerm);
+		
+		//wikipedia api call   //+ 'olympic'
+	// var url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm + "&format=json&callback=?";
+	
+	//var url = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + searchTerm + searchTermSecond + 'olympics' + 'equestrian' + '&limit=10&namespace=0&format=json&callback=?';
+	//var url = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + searchTerm + 'olympics' + '&limit=10&namespace=0&format=json&callback=?';
+	var url = 'http://en.wikipedia.org/w/api.php?callback=?';
+    //var url = 'http://en.wikipedia.org/w/api.php?format=json&action=query&title=Dressage&prop=revisions&rvprop=content&callback=?';
+
+		//find json data within api
+  	$.ajax({
+		type:"GET",
+		url: url,
+		asyn:false,
+		dataType: "json",
+		contentType: "application/json; charset=utf-8",
+		srsearch: q + "Dressage",
+        srwhat: "text",
+        action: "query",
+        list: "search",
+        format: "json",
+		//The jqXHR (jQuery XMLHttpRequest) replaces the browser native XMLHttpRequest object. jQuery wraps the browser native XMLHttpRequest object with a superset API. The jQuery XMLHttpRequest (jqXHR) object is returned by the $.ajax() function. The jqXHR object simulates native XHR functionality where possible.//
+		success: function(data, textInput, jqXHR){
+			$('#searchResults').html('');
+			for(var i=0; i < data[1].length; i++){
+				$('#searchResults').prepend("<div><div class='btn-default'><a href="+data[3][i]+"><h2>" + data[1][i]+ "</h2>" + "<p>" + data[2][i] + "</p></a></div></div>" );  
+			}
+		},
+		
+		//error message
+		error: function(errorMessage){
+			alert(errorMessage);
+		}
+	});
+	});
+});
+
+
+
+/*$(document).ready(function(){
+
+//var countryHorse = {
+//	country: [],
+//	person: [Xavier Lesage on Plumard,]
+//	horse: [],
+
+//}
+
+	//button and search output function
+	$('#searchBtn').click(function(){
+		var searchTerm = $('#search').val();
+		//var searchTermSecond = $('olympicsequestrian');
+
+	console.log(searchTerm);
+		
+		//wikipedia api call
+	// var url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm + "&format=json&callback=?";
+	
+	//var url = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + searchTerm + searchTermSecond + 'olympics' + 'equestrian' + '&limit=10&namespace=0&format=json&callback=?';
+	//var url = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + searchTerm + 'olympics' + '&limit=10&namespace=0&format=json&callback=?';
+	var url = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + searchTerm + ' olympic' + '&limit=10&namespace=0&format=json&callback=?';
+    //var url = 'http://en.wikipedia.org/w/api.php?format=json&action=query&title=Dressage&prop=revisions&rvprop=content&callback=?';
+
+		//find json data within api
+  	$.ajax({
+		type:"GET",
+		url: url,
+		asyn:false,
+		dataType: "json",
+		    		contentType: "application/json; charset=utf-8",
+		//The jqXHR (jQuery XMLHttpRequest) replaces the browser native XMLHttpRequest object. jQuery wraps the browser native XMLHttpRequest object with a superset API. The jQuery XMLHttpRequest (jqXHR) object is returned by the $.ajax() function. The jqXHR object simulates native XHR functionality where possible.//
+		success: function(data, textInput, jqXHR){
+			console.log(data);
+			console.log(textInput);
+			console.log(jqXHR);
+			$('#searchResults').html('');
+			for(var i=0; i < data[1].length; i++){
+				$('#searchResults').prepend("<div><div class='btn-default'><a href="+data[3][i]+"><h2>" + data[1][i]+ "</h2>" + "<p>" + data[2][i] + "</p></a></div></div>" );  
+			}
+		},
+		
+		//error message
+		error: function(errorMessage){
+			alert(errorMessage);
+		}
+	});
+	});
+});
+
+
+
+/*$("#searchTerm").keypress(function(e){
+  if(e.keyCode === 13){
+    var searchTerm = $("#searchTerm").val();
+  var url = "https://en.wikipedia.org/w/api.php?action=opensearch&search="+ searchTerm + ' olympic' + "&format=json&callback=?";
+  $.ajax({
+    url: url,
+    type: "GET",
+    async: false,
+    dataType: "json",
+    		contentType: "application/json; charset=utf-8",
+    success: function(data, status, jqXHR){
+      console.log(data);
+      for(var i = 0; i < data[1].length; i++) {
+        $("#output").prepend("<div><div class='well'><a href="+data[3][i]+"><h2>" + data[1][i]+ "</h2>" + "<p>" + data[2][i] + "</p></a></div></div>");
+        
+      }
+    }
+    
+  })
+  }
+});
+
+
+
+
+
+$("#search").on("click", function(){
+  var searchTerm = $("#searchTerm").val();
+  var url = "https://en.wikipedia.org/w/api.php?action=opensearch&search="+ searchTerm + ' olympic' + "&format=json&callback=?";
+  $.ajax({
+    url: url,
+    type: "GET",
+    async: false,
+    dataType: "json",
+    		contentType: "application/json; charset=utf-8",    
+    success: function(data, status, jqXHR){
+      // console.log(data);
+      for(var i = 0; i < data[1].length; i++) {
+        $("#output").prepend("<div><div class='well'><a href="+data[3][i]+"><h2>" + data[1][i]+ "</h2>" + "<p>" + data[2][i] + "</p></a></div></div>");
+        
+      }
+    }
+    
+  })
+  })
+});*/

@@ -60,29 +60,29 @@ function invalidPopoverHide(){
 
 ///WIKI API
 function wiki(){
-//    $("#searchBtn").on("click", function(){
-    var q = $("#search").val();
-    $.getJSON("http://en.wikipedia.org/w/api.php?callback=?",
-      {
-        srsearch: q + "Dressage",
-        srwhat: "text",
-        action: "query",
-        list: "search",
-        format: "json"
-      },
+    var searchTerm = $('#search').val();
+    //var searchTermSecond = $('olympicsequestrian');
+  console.log(searchTerm);
 
-    function(data) {
-      
-      console.log(data); ///shows object in console!
-      $("#wikiResults").empty();
-      $("#wikiResults").append("<p style='font-size:30px'>Wikipedia API Results for <b>" + q + "</b></p>");
+var url = 'http://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch='+ searchTerm + '%20dressage&srlimit=6&srwhat=text&callback=?';
+
+    $.ajax({
+      method:"GET",
+      url: url,
+      asyn:false,
+      data: { action:'query', format:'json', list:'search', srwhat:'text', srsearch: searchTerm + "Dressage" },
+      dataType: "json",
+      // Function to be called if the request succeeds
+      success: function( data ){
+        console.log(data);
+
+      $('#wikiResults').empty();
+      $('#wikiResults').append("<p style='font-size: 20px'>Results for <b>" + searchTerm + "</b></p>");
         $.each(data.query.search, function(i,item){
-          console.log(i);
-          console.log(item);
           $("#wikiResults").append("<div><a href='http://en.wikipedia.org/wiki/" + item.title + "'>" + item.title + "</a><br>" + item.snippet + "<br><br></div>");
           });
-        });
- //     });   
+    }
+  }); 
 } 
 
 //======================= PROCESS ========================
