@@ -115,7 +115,8 @@ $(document).ready(function() {
             //run code for no match
             invalidPopoverShow();
             $('#wikiResults').empty();
-            $('#wikiResults').append("<p style='font-size: 30px;background-color: #180D01; color: #fed136; border: 7px ridge #fed136'>Choose a valid country that had Dressage/Equestrain participants in the Olympics!</b></p>");
+            $('#wikiResults').append("<p style='font-size: 30px;background-color: #180D01; color: #fed136; border: 7px ridge #fed136'>Choose a valid country that had Dressage/Equestrain participants in the Olympics!</b></p>"
+                                    +"<p><iframe src='https://giphy.com/gifs/qqZvikzRKaBfq/html5' style='border:0; text-align: center' width='250' height='250' class='giphy-embed'></iframe></p>" );
             //font-family: &ldquo;Montserrat&rdquo;, &ldquo;Helvetica Neue&rdquo, Helvetica, Arial;
             console.log('No Match: ' + searchTerm);
 
