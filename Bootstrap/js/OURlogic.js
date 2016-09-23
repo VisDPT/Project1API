@@ -46,7 +46,7 @@ $(document).ready(function() {
     $('[data-toggle="popover"]').popover({
         placement: "right",
         trigger: "focus",
-        content: "Choose a valid country that had Dressage/Equestrain participants in the Olympics! (Click anywhere to make popover disappear)",
+        content: "Choose a country that has Dressage/Equestrain participants in the Olympics! (Click anywhere to make popover disappear)",
     });
 
     $('[data-toggle="popover"]').popover('hide');
@@ -64,7 +64,10 @@ $(document).ready(function() {
     function wiki() {
         var searchTerm = $('#search').val();
         console.log(searchTerm);
-        var url = 'http://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=' + searchTerm + '%20dressage&srlimit=6&srwhat=text&callback=?';
+        var url = 'http://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=' + searchTerm + '%20dressage&srlimit=20&srwhat=text&callback=?';
+        
+
+
         $.ajax({
             method: "GET",
             url: url,
@@ -73,6 +76,7 @@ $(document).ready(function() {
             dataType: "json",
             // Function to be called if the request succeeds
             success: function(data) {
+
                 console.log(data);
                 $('#wikiResults').empty();
                 $('#wikiResults').append("<p style='font-size: 20px'>Results for <b>" + searchTerm + "</b></p>");
@@ -80,6 +84,7 @@ $(document).ready(function() {
                     $("#wikiResults").append("<div><a href='http://en.wikipedia.org/wiki/" + item.title + "'>" + item.title + "</a><br>" + item.snippet + "<br><br></div>");
                 });
             }
+
         });
     }
 
@@ -115,8 +120,8 @@ $(document).ready(function() {
             //run code for no match
             invalidPopoverShow();
             $('#wikiResults').empty();
-            $('#wikiResults').append("<p style='font-size: 30px;background-color: #180D01; color: #fed136; border: 7px ridge #fed136'>Choose a valid country that had Dressage/Equestrain participants in the Olympics!</b></p>"
-                                    +"<p><iframe src='https://giphy.com/gifs/qqZvikzRKaBfq/html5' style='border:0; text-align: center' width='250' height='250' class='giphy-embed'></iframe></p>" );
+            $('#wikiResults').append("<p><iframe src='https://giphy.com/gifs/qqZvikzRKaBfq/html5' style='margin-top: 25px; border:0' width='220' height='220' class='giphy-embed'></iframe></p>" +
+                "<p style='font-size: 30px;background-color: #180D01; color: #fed136; float: right; border: 7px ridge #fed136'>Choose a valid country that had Dressage/Equestrain participants in the Olympics!</b></p>");
             //font-family: &ldquo;Montserrat&rdquo;, &ldquo;Helvetica Neue&rdquo, Helvetica, Arial;
             console.log('No Match: ' + searchTerm);
 
