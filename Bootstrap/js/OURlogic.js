@@ -52,6 +52,7 @@ $(document).ready(function() {
     }
     google.maps.event.addDomListener(window, 'load', initMap);
 
+    /**
     // listen for the event fired and retreive more details for that place  
     // helped with setting up the dropdown in the search box? 
     // Or maybe the map setup in the variables did that? 
@@ -98,8 +99,7 @@ $(document).ready(function() {
         // Call search() to load wikipedia data
         search();
     });
-
-
+    **/
 
     /// ---POPOVER---
     function invalidPopoverShow() {
@@ -165,9 +165,47 @@ $(document).ready(function() {
 
 
     // ==================== BUTTON ON CLICK FUNCTION =================
-    //$("#searchBtn").on("click", search);
+    $("#searchBtn").on("click", search);
 
     function search() {
+        var places = userSearch.getPlaces(); // returns the search by user query
+
+        if (places.length == 0) {
+            return;
+        }
+
+        // get the icon, location, and name for each location 
+        places.forEach(function(place) {
+            if (!place.geometry) {
+                console.log("Returned place contains no geometry");
+                return;
+            }
+            var icon = {
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(25, 25)
+            };
+
+
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+                map: map,
+                icon: icon,
+                title: place.name,
+                position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+                // Only geocodes have viewport.
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+        });
+        map.fitBounds(bounds);
+
         var searchTerm = $("#search").val().trim(); //setting user input to a variable
         console.log(searchTerm);
 
