@@ -946,9 +946,11 @@ body {
 #search{
   margin-top: 20px;
   padding: 10px;
-  border-style: 3px solid #180D01;
+  border-style: 10px solid #180D01;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; 
   font-size: 20px;
+  background color: white;
+  
 }
 
 #searchBtn{
