@@ -62,7 +62,7 @@ $(document).ready(function() {
 
     ///WIKI API
     function wiki() {
-        var searchTerm = $('#search').val();
+        var searchTerm = $('#search').val().toLowerCase();
         console.log(searchTerm);
         var url = 'http://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=' + searchTerm + '%20dressage&srlimit=20&srwhat=text&callback=?';
         
