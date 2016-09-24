@@ -1,0 +1,7 @@
+Dressage in the Olympics (Vis, Sam, Allie, Del)
+1) Start Youtube link below at 0:21 to 1:20  (stop at 1:20 https://www.youtube.com/watch?v=nO3NpTcWZ3w    
+
+2)Then to our app:   http://murmuring-woodland-58881.herokuapp.com/
+Backup: 
+https://github.com/VisDPT/Project1API
+
